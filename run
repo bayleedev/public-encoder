@@ -10,7 +10,7 @@ pbpaste > __key
 gpg --import __key 2>&1 | ag --nocolor -o '(?<=key )[^:]+' > __name
 
 # Copy template and open for the user
-cp template __template
+cp my-template __template
 vim __template
 
 # Encode Message
