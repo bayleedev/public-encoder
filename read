@@ -1,0 +1,11 @@
+#!/bin/sh
+
+rm -f __message
+
+pbpaste > __message
+
+gpg -d __message 2>/dev/null | pbcopy
+
+gpg -d __message
+
+rm -f __message
