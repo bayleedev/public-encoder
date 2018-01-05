@@ -14,11 +14,11 @@ cp my-template __template
 vim __template
 
 # Encode Message
-gpg -e --symmetric --armor -u $1 -r $(cat __name) __template
+gpg --sign --encrypt --symmetric --armor --local-user $1 --recipient $(cat __name) __template
 
 # VIM Contents
 cat __template.asc | pbcopy
-gpg -d __template.asc
+gpg --decrypt __template.asc
 
 # Cleanup for past runs
 rm -f __key __name __template __template.asc
