@@ -18,7 +18,7 @@ cp template my-template
 ## Encrypting Data
 
 1. Copy a public key to your clipboard
-1. Run `./run`
+1. Run `./run NAME` where `NAME` is an identifier for your private key
 
 ## Decrypting Data
 

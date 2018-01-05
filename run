@@ -14,7 +14,7 @@ cp my-template __template
 vim __template
 
 # Encode Message
-gpg -e --symmetric --armor -u "Teddy" -r $(cat __name) --trust-model always __template
+gpg -e --symmetric --armor -u $1 -r $(cat __name) __template
 
 # VIM Contents
 cat __template.asc | pbcopy
