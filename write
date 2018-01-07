@@ -30,4 +30,6 @@ cat __template.asc | pbcopy
 gpg --decrypt __template.asc
 
 # Cleanup for past runs
+echo "Press <enter> to cleanup"
+read
 rm -f __key __name __template __template.asc
