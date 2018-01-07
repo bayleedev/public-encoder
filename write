@@ -1,5 +1,14 @@
 #!/bin/sh
 
+# Ensure we have a key to use
+if echo "$1" | grep -iq "^$" ;then
+  gpg --list-secret-keys
+  echo "What key should we use?"
+  read local_user
+else
+  local_user=$1
+fi
+
 # Cleanup for past runs
 rm -f __key __name __template __template.asc
 
@@ -14,7 +23,7 @@ cp my-template __template
 vim __template
 
 # Encode Message
-gpg --sign --encrypt --symmetric --armor --local-user $1 --recipient $(cat __name) __template
+gpg --sign --encrypt --armor --local-user $local_user --recipient $(cat __name) __template
 
 # VIM Contents
 cat __template.asc | pbcopy
